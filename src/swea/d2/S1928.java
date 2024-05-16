@@ -12,7 +12,7 @@ public class S1928 {
 
         int t = scan.nextInt();
         for (int c = 1; c <= t; c++) {
-            
+
         }
     }
 }
