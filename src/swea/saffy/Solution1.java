@@ -5,9 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * 순서쌍
- */
 public class Solution1 {
 
     static class Pair implements Comparable<Pair> {

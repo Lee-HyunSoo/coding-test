@@ -5,9 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * 모자
- */
 public class Solution2 {
 
     public static void main(String[] args) {
