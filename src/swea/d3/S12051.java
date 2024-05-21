@@ -12,29 +12,29 @@ public class S12051 {
 
         int t = scan.nextInt();
         for (int c = 1; c <= t; c++) {
-            long n = scan.nextInt();
-            int pd = scan.nextInt();
-            int pg = scan.nextInt();
-
-            /*
-            총 g판, 승률 = 승 / (승 + 패 = 전체판수 = g = n + x)
-            pg / 100 = (n * pd / 100) + x / n + x
-            pg = (n * pd) + 100x / n + x
-            pg(n + x) = (n * pd) + 100x
-            100x - pgx = pgn - pdn
-            x = n(pg - pd) / (100 - pg) -> g >= n >= d
-
-            1000(2) / 17
-
-             */
+            long n = scan.nextLong();
+            int pd = scan.nextInt(); // 오늘 승률
+            int pg = scan.nextInt(); // 전체 승률
 
             String answer = "Possible";
-
-            System.out.println(10 / 3);
-
-
-
-
+            if (pd != 0 && pg == 0) {
+                answer = "Broken";
+            } else if (pd != 100 && pg == 100) {
+                answer = "Broken";
+            } else {
+                boolean flag = false;
+                for (long d = 1; d <= n; d++) {
+                    double win = (double) d * pd / 100;
+                    if (win % 1 == 0) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag) {
+                    answer = "Broken";
+                }
+            }
+            System.out.println("#" + c + " " + answer);
         }
     }
 }
