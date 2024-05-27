@@ -7,6 +7,9 @@ import java.util.*;
  */
 public class S9480 {
 
+    static String[] words;
+    static int answer;
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -15,34 +18,33 @@ public class S9480 {
             int n = scan.nextInt();
             scan.nextLine();
 
-            Map<Character, Integer> map = new HashMap<>();
-            int answer = 0;
+            words = new String[n];
+            answer = 0;
             for (int i = 0; i < n; i++) {
-                String word = scan.nextLine();
-
-                for (int j = 0; j < word.length(); j++) {
-                    map.put(word.charAt(j), map.getOrDefault(word.charAt(j), 0) + 1);
-                }
+                words[i] = scan.nextLine();
             }
 
-            for (char ch : map.keySet()) {
-                System.out.println(ch + " " + map.get(ch));
-            }
-
-            boolean flag = true;
-            while (flag) {
-                answer++;
-                for (char ch : map.keySet()) {
-                    map.put(ch, map.get(ch) - 1);
-
-                    if (map.get(ch) == 0) {
-                        flag = false;
-                        break;
-                    }
-                }
-            }
-
+            dfs(0, "");
             System.out.println("#" + c + " " + answer);
+        }
+    }
+
+    private static void dfs(int idx, String s) {
+        boolean flag = false;
+        for (char c = 'a'; c <= 'z'; c++) {
+            if (s.indexOf(c) == -1) {
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            answer++;
+        }
+        if (idx == words.length) {
+            return;
+        }
+        for (int i = idx; i < words.length; i++) {
+            dfs(i + 1, s + words[i]);
         }
     }
 }
