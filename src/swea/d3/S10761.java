@@ -7,6 +7,18 @@ import java.util.*;
  */
 public class S10761 {
 
+    static class Pair {
+        String s;
+        int idx;
+        int dest;
+
+        public Pair(String s, int idx, int dest) {
+            this.s = s;
+            this.idx = idx;
+            this.dest = dest;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -17,11 +29,11 @@ public class S10761 {
         }
     }
 }
+
 /*
-1초 b 1 0 1
-2초 b 2 0 1 0 누름
-3초 b 2 0 2 b 누름
-4초 b 3 0 2 0 누름
-5초 b 4 0 2
-6초 b 4 누름
- */
+1초 : B 2 O 1 - O 누름
+2초 : B 2 O 1 - B 누름
+3초 : B 3 O 2 - O 누름
+4초 : B 4 O 2
+5초 : B 4 O 2 - B 누름
+*/
