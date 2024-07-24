@@ -1,20 +1,19 @@
 package swea.d3;
 
-import java.util.*;
+import java.util.Scanner;
 
 /**
- * 군주제와 공화제
+ * 통역사 성경이
  */
-public class S10993 {
+public class S7675 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
         int t = scan.nextInt();
+        scan.nextLine();
         for (int c = 1; c <= t; c++) {
-            int n = scan.nextInt();
-
+            
         }
     }
 }
-//

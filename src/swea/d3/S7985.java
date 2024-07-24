@@ -4,6 +4,9 @@ import java.util.*;
 
 /**
  * Rooted Binary Tree 재구성
+ * 리스트를 돌며 짝수 index 인것만 모아서 결과 리스트에 추가
+ * 홀수 index 인 것을 모아 새로운 input 으로 갱신
+ * 로직 반복
  */
 public class S7985 {
 
@@ -11,38 +14,36 @@ public class S7985 {
         Scanner scan = new Scanner(System.in);
 
         int t = scan.nextInt();
-        for (int c = 1; c <= t; c++) {
+        for (int tc = 1; tc <= t; tc++) {
             int k = scan.nextInt();
 
-            int size = (int) Math.pow(2, k) - 1;
-            int[] arr = new int[size];
-            for (int i = 0; i < size; i++) {
-                arr[i] = scan.nextInt();
+            List<Integer> list = new ArrayList<>();
+            for (int i = 0; i < Math.pow(2, k) - 1; i++) {
+                list.add(scan.nextInt());
             }
 
-            int idx = size / 2;
-            System.out.println("#" + c + " " + arr[idx]);
-            while (true) {
-
+            List<List<Integer>> result = new ArrayList<>();
+            for (int i = 0; i < k; i++) {
+                List<Integer> odd = new ArrayList<>();
+                List<Integer> even = new ArrayList<>();
+                for (int j = 0; j < list.size(); j++) {
+                    if (j % 2 == 0) {
+                        even.add(list.get(j));
+                    } else {
+                        odd.add(list.get(j));
+                    }
+                }
+                result.add(even);
+                list = odd;
             }
 
+            System.out.print("#" + tc + " ");
+            for (int i = result.size() - 1; i >= 0; i--) {
+                for (int j = 0; j < result.get(i).size(); j++) {
+                    System.out.print(result.get(i).get(j) + " ");
+                }
+                System.out.println();
+            }
         }
     }
 }
-
-/*
-3* 2 7* 5 6* 1 4*
-3
-1 5
-0 2 4 6
- */
-
-/*
-5* 3 6* 2 8* 7 9* 5 10* 6 11* 1 12* 4 13*
-7
-5 9
-4 6 8 10
-3 11
-
-
- */
