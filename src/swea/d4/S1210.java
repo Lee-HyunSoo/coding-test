@@ -49,6 +49,7 @@ public class S1210 {
     }
 
     private static void ladder(int row, int col, int start) {
+        // 도착한 지점이 2라면 저장 후 return
         if (graph[row][col] == 2) {
             answer = start;
             return;
@@ -58,6 +59,8 @@ public class S1210 {
             int ny = row + dy[idx];
             int nx = col + dx[idx];
 
+            // 이동 가능한 지점이라면, 재귀
+            // 사다리는 좌 우 동시 이동 가능한 지점이 없기 때문에 좌 -> 우 -> 하 순으로 탐색
             if (0 <= nx && nx < 100 && 0 <= ny && ny < 100) {
                 if (!visit[ny][nx] && graph[ny][nx] != 0) {
                     visit[ny][nx] = true;
