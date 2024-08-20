@@ -12,7 +12,7 @@ import java.util.*;
  * 그 중 거리가 더 작으면 -> 좌표 값 갱신
  * 최소와 같은 값이 나올땐 좌표 갱신 x -> 가장 왼쪽의 적이 아니기 때문
  */
-public class Main {
+public class Q17135 {
 
     static int n, m, d;
     static int[][] graph;

@@ -6,6 +6,8 @@ import java.util.Scanner;
  * 농작물 수확하기
  *
  * 별 찍기와 유사
+ * 0~half 까지 공백 + 색칠 + 공백을 구한다.
+ * half~n 까지 공백 + 색칠 + 공백을 구한다.
  */
 public class S2805 {
 
@@ -30,6 +32,7 @@ public class S2805 {
 
             // 0 ~ half 까지
             // 2, 1, 0 짜리 공백 필요
+            // 0~half 까지 공백 + 색칠 + 공백을 구한다.
             for (int i = 0; i <= half; i++) {
                 int diff = i + 1;
                 int j = 0;
@@ -45,6 +48,7 @@ public class S2805 {
                 }
             }
 
+            // half~n 까지 공백 + 색칠 + 공백을 구한다.
             for (int i = half + 1; i < n; i++) {
                 int diff = i - half;
                 int j = 0;
