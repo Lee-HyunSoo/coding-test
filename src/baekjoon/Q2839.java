@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Q2839 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
+        int n = scan.nextInt();
         // 1. 최대 5천까지 입력이 들어오므로 5000개짜리 배열을 생성한다.
         int[] arr = new int[5001];
 
@@ -26,7 +26,7 @@ public class Q2839 {
         arr[4] = -1;
         arr[5] = 1;
 
-        for (int i = 6; i <= N; i++) {
+        for (int i = 6; i <= n; i++) {
             if (arr[i - 3] == -1 && arr[i - 5] != -1) {
                 // 3. 5kg 봉지가 사용가능하면 5kg 봉지를 사용한다.
                 arr[i] = arr[i - 5] + 1;
@@ -41,6 +41,6 @@ public class Q2839 {
                 arr[i] = Math.min(arr[i - 3] + 1, arr[i - 5] + 1);
             }
         }
-        System.out.println(arr[N]);
+        System.out.println(arr[n]);
     }
 }
