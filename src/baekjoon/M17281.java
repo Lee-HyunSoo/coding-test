@@ -35,7 +35,7 @@ import java.util.Scanner;
  * 3-4-3. 4 미만이면 arr[idx + 타자점수] 를 1로, arr[idx] 는 0으로 바꾼다.
  * 3-5. 이 과정을 3 아웃이 나올 때까지 반복한다.
  */
-public class Q17281 {
+public class M17281 {
 
     static int n;
     static int[][] graph;

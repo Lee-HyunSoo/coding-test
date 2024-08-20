@@ -12,7 +12,7 @@ import java.util.Scanner;
  * 5. 둘다 사용불가능하다면 -1 로 한다.
  * 6. 원하는 위치에서 이전값 + 3kg 봉지와 이전값 + 5kg 봉지를 비교한다.
  */
-public class Q2839 {
+public class M2839 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();

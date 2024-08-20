@@ -23,7 +23,7 @@ import java.util.Scanner;
  *   4-2. 맨 앞의 수를 이미 정했기 때문에 n-1 크기의 중복순열을 구한다.
  *   4-3. n-1 크기의 중복순열을 구했다면, 소수여부를 판단하고 출력 후 return 한다.
  */
-public class Q2023 {
+public class M2023 {
 
     static int n;
     static int[] firstNum = {2, 3, 5, 7};

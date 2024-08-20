@@ -19,7 +19,7 @@ import java.util.*;
  *  3-1. level 이 n 이되면 종료한다.
  *  3-2. sour, bitter 가 초기값이 아닐 때 신맛의 곱과 쓴맛의 합의 차이가 가장 적은 것으로 갱신한다.
  */
-public class Q2961 {
+public class M2961 {
 
     static class Pair {
         int sour, bitter;

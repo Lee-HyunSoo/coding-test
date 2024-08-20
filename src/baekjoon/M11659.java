@@ -10,7 +10,7 @@ import java.util.Scanner;
  * i 번째 배열 = 0번째 ~ i번째 까지의 합을 저장
  * i ~ j 까지의 합 = j번째 배열 - (i - 1)번째 배열
  */
-public class Q11659 {
+public class M11659 {
 
 
     public static void main(String[] args) {

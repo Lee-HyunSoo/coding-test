@@ -8,7 +8,7 @@ import java.util.Stack;
 /**
  * 스택 수열
  */
-public class Q1874 {
+public class M1874 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

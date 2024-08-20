@@ -30,7 +30,7 @@ import java.util.*;
  * 6. check 메서드
  *  6-1. 위에서 find 메서드로 검증을 했기 때문에, 파라미터로 넘어온 값을 통해 색종이를 붙이거나 뗀다.
  */
-public class S17136 {
+public class M17136 {
 
     static int[][] board;
     static int[] paper;

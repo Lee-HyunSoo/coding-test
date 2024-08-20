@@ -17,7 +17,7 @@ import java.util.*;
  *   2-4. end 가 s 보다 작을 때까지 반복한다.
  *   2-5. 매번 문자열을 자르면 시간초과가 나기 때문에, 처음에만 자르고 이후 한칸씩만 count 를 줄이고 늘리며 비교한다.
  */
-public class Q12891 {
+public class M12891 {
 
     static int[] minCount;
     static int[] words;

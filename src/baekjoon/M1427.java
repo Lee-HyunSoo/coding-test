@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * 소트인사이드
  */
-public class Q1427 {
+public class M1427 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

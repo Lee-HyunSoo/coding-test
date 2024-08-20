@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 소수 구하기
  */
-public class Q1929 {
+public class M1929 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

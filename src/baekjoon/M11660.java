@@ -18,7 +18,7 @@ import java.util.Scanner;
  *  3-2. 빼야하는 구간 -> sum[x2][y1 - 1], sum[x1 - 1][y2]
  *  3-3. 겹치게 뺀 구간은 다시 더해준다. -> sum[x1 - 1][y1 - 1]
  */
-public class Q11660 {
+public class M11660 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

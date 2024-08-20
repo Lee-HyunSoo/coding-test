@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * 연결 요소의 개수
  */
-public class Q11724 {
+public class M11724 {
 
     static int[][] graph;
     static boolean[] visit;

@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * 보물섬
  */
-public class Q2589 {
+public class M2589 {
 
     static int n, m;
     static int[][] graph;

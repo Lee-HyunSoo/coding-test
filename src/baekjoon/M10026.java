@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * 적록색약
  */
-public class Q10026 {
+public class M10026 {
 
     static int n;
     static boolean[][] visit;

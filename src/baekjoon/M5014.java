@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * 스타트 링크
  */
-public class Q5014 {
+public class M5014 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

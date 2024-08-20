@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * 1 부터 N 까지 자연수 중 중복 없이 M 개를 고른 수열
  */
-public class Q15650 {
+public class M15650 {
 
     static int n, m;
     static int[] nums;

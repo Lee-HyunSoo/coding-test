@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * 미로 탐색
  */
-public class Q2178 {
+public class M2178 {
 
     static int[][] graph;
     static boolean[][] visit;

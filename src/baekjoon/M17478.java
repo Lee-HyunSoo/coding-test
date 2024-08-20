@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 재귀의 횟수가 n 이 되면, 마무리 문장으로 전환
  * 재귀 호출이 종료되고 돌아오는 시점에 답변하였지 문장 추기
  */
-public class Q17478 {
+public class M17478 {
 
     static int n;
     static StringBuilder sentence;

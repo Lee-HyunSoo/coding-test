@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * 절대값 힙
  */
-public class Q11286 {
+public class M11286 {
 
     static class Pair implements Comparable<Pair> {
         int n, flag; // 음수 0, 양수 1

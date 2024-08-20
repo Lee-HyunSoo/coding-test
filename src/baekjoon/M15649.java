@@ -7,7 +7,7 @@ import java.util.*;
  *
  * 재귀를 통한 순열 구하기
  */
-public class Q15649 {
+public class M15649 {
 
     static int[] nums;
     static boolean[] visit;
