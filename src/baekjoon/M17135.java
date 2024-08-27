@@ -14,9 +14,20 @@ import java.util.*;
  */
 public class M17135 {
 
+    static class Pair {
+        int x, y;
+
+        Pair(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
     static int n, m, d;
     static int[][] graph;
-    static boolean[] combi;
+    static int[] dx = {-1, -1, 1};
+    static int[] dy = {0, -1, 1};
+    static int[] combi;
 
     static int answer;
 
@@ -27,7 +38,7 @@ public class M17135 {
         m = scan.nextInt();
         d = scan.nextInt();
         graph = new int[n][m];
-        combi = new boolean[m];
+        combi = new int[3];
         answer = 0;
 
         for (int row = 0; row < n; row++) {
@@ -42,37 +53,25 @@ public class M17135 {
 
     private static void combination(int level, int idx) {
         if (level == 3) {
-            answer = Math.max(answer, defense());
+//            answer = Math.max(answer, defense());
             return;
         }
 
         for (int i = idx; i < m; i++) {
-            combi[i] = true;
+            combi[level] = i;
             combination(level + 1, i + 1);
-            combi[i] = false;
         }
     }
 
-    private static int defense() {
+    private static int getDist(int x1, int y1, int x2, int y2) {
+        return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+    }
+
+    private static int[][] copy() {
         int[][] copy = new int[n][m];
         for (int idx = 0; idx < n; idx++) {
             copy[idx] = graph[idx].clone();
         }
-
-        int count = 0;
-        for (int row = n - 1; row >= 0; row -= d) {
-            for (int col = 0; col < m; col++) {
-                if (combi[col]) {
-                    for (int x = row; x >= x - d + 1; x--) {
-
-                    }
-
-                }
-            }
-        }
-
-
-
-        return count;
+        return copy;
     }
 }
