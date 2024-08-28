@@ -25,8 +25,8 @@ public class M17135 {
 
     static int n, m, d;
     static int[][] graph;
-    static int[] dx = {-1, -1, 1};
-    static int[] dy = {0, -1, 1};
+    static int[] dx = {0, -1, 0};
+    static int[] dy = {-1, 0, 1};
     static int[] combi;
 
     static int answer;
@@ -53,7 +53,7 @@ public class M17135 {
 
     private static void combination(int level, int idx) {
         if (level == 3) {
-//            answer = Math.max(answer, defense());
+            defense();
             return;
         }
 
@@ -61,6 +61,62 @@ public class M17135 {
             combi[level] = i;
             combination(level + 1, i + 1);
         }
+    }
+
+    private static void defense() {
+        int[][] copy = copy();
+        int count = 0;
+        for (int row = n - 1; row >= 0; row--) {
+            for (int col : combi) {
+                Pair result = bfs(new Pair(row, col), copy);
+                if (result != null) {
+                    copy[result.x][result.y] = 0;
+                    System.out.println(result.x + " " + result.y);
+                    count++;
+                }
+            }
+        }
+        System.out.println();
+        answer = Math.max(answer, count);
+    }
+
+    private static Pair bfs(Pair start, int[][] copy) {
+        if (copy[start.x][start.y] == 1) {
+            return start;
+        }
+
+        Queue<Pair> q = new ArrayDeque<>();
+        boolean[][] visit = new boolean[n][m];
+        q.offer(new Pair(start.x, start.y));
+        visit[start.x][start.y] = true;
+
+        while (!q.isEmpty()) {
+            int size = q.size();
+            while (size-- > 0) {
+                Pair p = q.poll();
+                for (int i = 0; i < 3; i++) {
+                    int nx = p.x + dx[i];
+                    int ny = p.y + dy[i];
+                    if (nx < 0 || nx >= n || ny < 0 || ny >= m) {
+                        continue;
+                    }
+                    if (visit[nx][ny]) {
+                        continue;
+                    }
+
+                    int dist = getDist(p.x, p.y, nx, ny);
+                    if (dist <= d) {
+                        if (copy[nx][ny] == 1) {
+                            return new Pair(nx, ny);
+                        } else {
+                            visit[nx][ny] = true;
+                            q.offer(new Pair(nx, ny));
+                        }
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     private static int getDist(int x1, int y1, int x2, int y2) {
