@@ -11,7 +11,7 @@ s -> 경유지
 
 3개의 dist 배열
 */
-public class L3_합승택시요금 {
+public class Lv3_합승택시요금 {
 
     static class Edge implements Comparable<Edge> {
         int end, cost;
