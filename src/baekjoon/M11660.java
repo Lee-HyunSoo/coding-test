@@ -1,49 +1,73 @@
 package baekjoon;
 
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * 구간 합 구하기 5
  *
- * 1. 구간합 공식
- * 	1-1. (x, y) = (x-1, y) + (x, y-1) - (x-1, y-1)
- * 	1-2. 구간합을 단순 배열 내 숫자가 아니라, 해당 구간을 기준으로 계산
+ * 1. 문제 정리
+ * 	1-1. N×N개의 수가 N×N 크기의 표에 채워져 있다. (x1, y1)부터 (x2, y2)까지 합을 구하는 프로그램을 작성하시오.
  *
- * 2. 구해야되는 구간이 주어졌을 때
- * 	2-1. (2, 2), (3, 4) 가 주어졌다면 -> (x1, y1), (x2, y2)
- *  2-2. (3, 1), (1, 4) 가 필요 -> (x2, y1 - 1), (x1 - 1, y2)
+ * 2. (n+1, n+1) 크기의 누적합 배열을 만든다.
+ *  2-1. (x, y) 그래프 값
+ *  2-2. + (x-1, y) 누적합 값
+ *  2-3. + (x, y-1) 누적합 값
+ *  2-4. - (x-1, y-1) 누적합 값으로 연산 후 채운다.
  *
- * 3. 해당 구간의 연산
- *  3-1. 전체 합 -> sum[x2][y2]
- *  3-2. 빼야하는 구간 -> sum[x2][y1 - 1], sum[x1 - 1][y2]
- *  3-3. 겹치게 뺀 구간은 다시 더해준다. -> sum[x1 - 1][y1 - 1]
+ * 3. (x2, y2) 로 총 합을 구하고, (x2, y1 - 1), (x1 - 1, y2) 에 해당하는 누적합 값을 뺀다.
+ *
+ * 4. 공통으로 빠진 (x1 - 1, y1 - 1) 에 해당하는 누적합 값을 더한다.
+ *
  */
 public class M11660 {
 
+    static Scanner scan = new Scanner(System.in);
+    static int n, m;
+    static int[][] graph;
+    static int[][] pSum;
+
+
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-        int m = scan.nextInt();
+        init();
 
-        int[][] arr = new int[n + 1][n + 1];
-        for (int row = 1; row <= n; row++) {
-            for (int col = 1; col <= n; col++) {
-                arr[row][col] = scan.nextInt();
-                // 1. 구간합 공식 : 전체합 - 빼야하는 구간 + 빼야하는 구간 중 겹친구간
-                arr[row][col] += (arr[row - 1][col] + arr[row][col - 1] - arr[row - 1][col - 1]);
-            }
-        }
-
-        for (int row = 1; row <= m; row++) {
-            // 2. 구해야되는 구간이 주어졌을 때 : 필요한 좌표를 구한다.
+        for (int row = 0; row < m; row++) {
             int x1 = scan.nextInt();
             int y1 = scan.nextInt();
             int x2 = scan.nextInt();
             int y2 = scan.nextInt();
 
-            // 3. 해당 구간의 연산 : 전체합 - 빼야하는 구간 + 빼야하는 구간 중 겹친구간
-            int answer = arr[x2][y2] - arr[x2][y1 - 1] - arr[x1 - 1][y2] + arr[x1 - 1][y1 - 1];
-            System.out.println(answer);
+            int dx = x1 - 1;
+            int dy = y1 - 1;
+            // 3. (x2, y2) 로 총 합을 구하고, (x2, y1 - 1), (x1 - 1, y2) 에 해당하는 누적합 값을 뺀다.
+            // 4. 공통으로 빠진 (x1 - 1, y1 - 1) 에 해당하는 누적합 값을 더한다.
+            int result = pSum[x2][y2] - pSum[x2][dy] - pSum[dx][y2] + pSum[dx][dy];
+            System.out.println(result);
+        }
+    }
+
+    private static void init() {
+        n = scan.nextInt();
+        m = scan.nextInt();
+        graph = new int[n][n];
+
+        for (int row = 0; row < n; row++) {
+            for (int col = 0; col < n; col++) {
+                graph[row][col] = scan.nextInt();
+            }
+        }
+        // 2. (n+1, n+1) 크기의 누적합 배열을 만든다.
+        pSum = new int[n + 1][n + 1];
+        for (int row = 1; row <= n; row++) {
+            for (int col = 1; col <= n; col++) {
+                // 2-1. (x, y) 그래프 값
+                // 2-2. + (x-1, y) 누적합 값
+                // 2-3. + (x, y-1) 누적합 값
+                // 2-4. - (x-1, y-1) 누적합 값으로 연산 후 채운다.
+                pSum[row][col] = graph[row - 1][col - 1]
+                        + pSum[row - 1][col]
+                        + pSum[row][col - 1]
+                        - pSum[row - 1][col - 1];
+            }
         }
     }
 }
