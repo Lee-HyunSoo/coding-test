@@ -22,6 +22,12 @@ public class S1873 {
 
     static int h, w;
     static char[][] graph;
+
+
+
+
+
+
     static int y, x; // 전차의 현재 위치
 
     public static void main(String[] args) {
