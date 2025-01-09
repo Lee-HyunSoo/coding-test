@@ -5,10 +5,12 @@ import java.util.Scanner;
 /**
  * 나머지
  *
- * (A+B)%C는 ((A%C) + (B%C))%C 와 같을까?
- * (A×B)%C는 ((A%C) × (B%C))%C 와 같을까?
+ * 1. 문제 정리
+ *  1-1. (A+B)%C는 ((A%C) + (B%C))%C 와 같을까?
+ *  1-2. (A×B)%C는 ((A%C) × (B%C))%C 와 같을까?
  *
- * 첫째 줄에 (A+B)%C, 둘째 줄에 ((A%C) + (B%C))%C, 셋째 줄에 (A×B)%C, 넷째 줄에 ((A%C) × (B%C))%C를 출력
+ * 2. 풀이
+ *  2-1. (A+B)%C, 둘째 줄에 ((A%C) + (B%C))%C, 셋째 줄에 (A×B)%C, 넷째 줄에 ((A%C) × (B%C))%C를 출력
  */
 public class M10430 {
 
@@ -27,6 +29,7 @@ public class M10430 {
     }
 
     private static void mod() {
+        // 2-1. (A+B)%C, 둘째 줄에 ((A%C) + (B%C))%C, 셋째 줄에 (A×B)%C, 넷째 줄에 ((A%C) × (B%C))%C를 출력
         System.out.println((a + b) % c);
         System.out.println(((a % c) + (b % c)) % c);
         System.out.println((a * b) % c);
